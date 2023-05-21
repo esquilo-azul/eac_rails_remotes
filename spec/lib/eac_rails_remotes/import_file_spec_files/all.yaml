@@ -1,0 +1,279 @@
+---
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Account
+  :code: '31'
+  :data:
+    :name: Renda
+    :parent_id: ''
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Account
+  :code: '11'
+  :data:
+    :name: FAETEC
+    :parent_id: '31'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Account
+  :code: '23'
+  :data:
+    :name: IFRJ
+    :parent_id: '31'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Account
+  :code: '19'
+  :data:
+    :name: CEDERJ Tutoria
+    :parent_id: '31'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Account
+  :code: '28'
+  :data:
+    :name: Rendimento de poupança
+    :parent_id: '31'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Account
+  :code: '57'
+  :data:
+    :name: Freelancer
+    :parent_id: '31'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Account
+  :code: '65'
+  :data:
+    :name: Restituição do IRPF
+    :parent_id: '31'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Account
+  :code: '77'
+  :data:
+    :name: TRF1
+    :parent_id: '31'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Account
+  :code: '78'
+  :data:
+    :name: Custo Macapá
+    :parent_id: '77'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Account
+  :code: '87'
+  :data:
+    :name: Supermercado Macapá
+    :parent_id: '78'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Balance
+  :code: '1'
+  :data:
+    :account_id: '1'
+    :date: '2014-01-27'
+    :amount: '89.56'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Balance
+  :code: '2'
+  :data:
+    :account_id: '1'
+    :date: '2014-01-29'
+    :amount: '39.56'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Balance
+  :code: '3'
+  :data:
+    :account_id: '1'
+    :date: '2014-01-30'
+    :amount: "-5.25"
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Balance
+  :code: '4'
+  :data:
+    :account_id: '1'
+    :date: '2014-02-03'
+    :amount: '599.61'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Balance
+  :code: '5'
+  :data:
+    :account_id: '1'
+    :date: '2014-02-04'
+    :amount: '520.11'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Balance
+  :code: '6'
+  :data:
+    :account_id: '1'
+    :date: '2014-02-05'
+    :amount: '807.02'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Balance
+  :code: '7'
+  :data:
+    :account_id: '1'
+    :date: '2014-02-06'
+    :amount: '366.19'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Balance
+  :code: '8'
+  :data:
+    :account_id: '1'
+    :date: '2014-02-07'
+    :amount: '286.34'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Balance
+  :code: '9'
+  :data:
+    :account_id: '1'
+    :date: '2014-02-10'
+    :amount: '262.22'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Balance
+  :code: '10'
+  :data:
+    :account_id: '1'
+    :date: '2014-02-11'
+    :amount: '962.22'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Transaction
+  :code: '1'
+  :data:
+    :date: '2014-04-25'
+    :description: Pão de queijo
+    :label: ''
+    :from_id: '3'
+    :to_id: '8'
+    :amount: '7.7'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Transaction
+  :code: '2'
+  :data:
+    :date: '2014-04-24'
+    :description: ''
+    :label: ''
+    :from_id: '3'
+    :to_id: '4'
+    :amount: '60.0'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Transaction
+  :code: '3'
+  :data:
+    :date: '2014-04-24'
+    :description: "Ônibus"
+    :label: ''
+    :from_id: '3'
+    :to_id: '18'
+    :amount: '5.0'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Transaction
+  :code: '4'
+  :data:
+    :date: '2014-04-25'
+    :description: "Água"
+    :label: ''
+    :from_id: '3'
+    :to_id: '5'
+    :amount: '10.0'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Transaction
+  :code: '6'
+  :data:
+    :date: '2014-01-26'
+    :description: ''
+    :label: RSHOP-DROGA RAIA
+    :from_id: '1'
+    :to_id: ''
+    :amount: '3.9'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Transaction
+  :code: '7'
+  :data:
+    :date: '2014-01-25'
+    :description: ''
+    :label: RSHOP-PADARIA ROT
+    :from_id: '1'
+    :to_id: '5'
+    :amount: '2.7'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Transaction
+  :code: '8'
+  :data:
+    :date: '2014-01-29'
+    :description: ''
+    :label: SAQUE 24H 00860775
+    :from_id: '1'
+    :to_id: ''
+    :amount: '50.0'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Transaction
+  :code: '9'
+  :data:
+    :date: '2014-01-30'
+    :description: ''
+    :label: CH COMPENSADO 001 000253
+    :from_id: '1'
+    :to_id: ''
+    :amount: '90.0'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Transaction
+  :code: '10'
+  :data:
+    :date: '2014-01-30'
+    :description: ''
+    :label: CXE     002055 SAQUE
+    :from_id: '1'
+    :to_id: ''
+    :amount: '40.0'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::Transaction
+  :code: '13'
+  :data:
+    :date: '2014-02-02'
+    :description: ''
+    :label: CXE 003251 SAQUE
+    :from_id: '1'
+    :to_id: ''
+    :amount: '40.0'
+- :source: ehbrs-web-utils_local
+  :entity: Finances::TransactionFilter
+  :code: '1'
+  :data:
+    :label: "%royal%"
+    :set_label: false
+    :description:
+    :set_description: false
+    from_id:
+    :set_from: false
+    to_id: 5
+    :set_to: true
+- :source: ehbrs-web-utils_local
+  :entity: Finances::TransactionFilter
+  :code: '2'
+  :data:
+    :label: "%PADARIA ROT%"
+    :set_label: false
+    :description:
+    :set_description: false
+    from_id:
+    :set_from: false
+    to_id: 5
+    :set_to: true
+- :source: ehbrs-web-utils_local
+  :entity: Finances::TransactionFilter
+  :code: '4'
+  :data:
+    :label: "%FLORESTA%"
+    :set_label: false
+    :description:
+    :set_description: false
+    from_id:
+    :set_from: false
+    to_id: 5
+    :set_to: true
+- :source: ehbrs-web-utils_local
+  :entity: Finances::TransactionFilter
+  :code: '5'
+  :data:
+    :label: "%BARRACA DO DANIEL%"
+    :set_label: false
+    :description: Feira
+    :set_description: true
+    from_id:
+    :set_from: false
+    to_id: 5
+    :set_to: true
