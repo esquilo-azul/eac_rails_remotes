@@ -1,2 +1,20 @@
 ---
-en: {}
+en:
+  activerecord:
+    models:
+      eac_rails_remotes/instance:
+        one: Remote instance
+        other: Remote instances
+  eac_ruby_utils:
+    listable:
+      remote_instance:
+        export_status:
+          error:
+            label: Error
+            description: Failed export.
+          new_data:
+            label: Novo registro
+            description: Record was imported, but not exported yet.
+          ok:
+            label: Ok
+            description: Successful export.

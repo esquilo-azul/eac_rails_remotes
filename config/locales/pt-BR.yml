@@ -1,2 +1,20 @@
 ---
-pt-BR: {}
+pt-BR:
+  activerecord:
+    models:
+      eac_rails_remotes/instance:
+        one: Instância remota
+        other: Instâncias remotas
+  eac_ruby_utils:
+    listable:
+      eac_rails_remotes/instance:
+        export_status:
+          error:
+            label: Erro
+            description: Exportação mal-sucedida.
+          new_data:
+            label: Novo registro
+            description: Registro foi importado, mas não exportado.
+          ok:
+            label: Ok
+            description: Exportação bem-sucedida.
