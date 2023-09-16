@@ -5,6 +5,12 @@ pt-BR:
       eac_rails_remotes/instance:
         one: Instância remota
         other: Instâncias remotas
+  eac_rails_utils:
+    menus:
+      root:
+        admin:
+          eac_rails_remotes:
+            __self: Remotos
   eac_ruby_utils:
     listable:
       eac_rails_remotes/instance:

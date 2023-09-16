@@ -5,6 +5,12 @@ en:
       eac_rails_remotes/instance:
         one: Remote instance
         other: Remote instances
+  eac_rails_utils:
+    menus:
+      root:
+        admin:
+          eac_rails_remotes:
+            __self: Remotes
   eac_ruby_utils:
     listable:
       remote_instance:
