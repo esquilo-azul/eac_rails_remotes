@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,assets,config,db,lib}/**/*']
 
-  s.add_dependency 'eac_active_scaffold', '~> 0.5', '>= 0.5.1'
+  s.add_dependency 'eac_active_scaffold', '~> 0.5', '>= 0.5.2'
   s.add_dependency 'eac_rails_utils', '~> 0.22'
   s.add_dependency 'eac_ruby_utils', '~> 0.119', '>= 0.119.2'
 
