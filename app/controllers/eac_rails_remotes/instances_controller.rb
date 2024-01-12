@@ -20,7 +20,7 @@ module EacRailsRemotes
       }
       active_scaffold_config.columns[:entity].options = {
         options: ::EacRailsRemotes::Instance.select(:entity).order(entity: :asc).distinct
-                                            .pluck(:entity)
+                   .pluck(:entity)
       }
     end
   end

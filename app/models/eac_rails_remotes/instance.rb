@@ -53,7 +53,7 @@ module EacRailsRemotes
     # @return [ActiveRecord::Reflection::BelongsToReflection, nil]
     def entity_association_class(attribute)
       entity_class.reflect_on_all_associations(:belongs_to)
-                  .find { |x| x.foreign_key.to_sym == attribute.to_sym }
+        .find { |x| x.foreign_key.to_sym == attribute.to_sym }
     end
 
     def entity_class
@@ -67,7 +67,7 @@ module EacRailsRemotes
     class << self
       def import(record)
         ri = where(source: record[:source], entity: record[:entity], code: record[:code])
-             .first_or_initialize
+               .first_or_initialize
         ri.data = record[:data].to_yaml
         ri.export_status = EXPORT_STATUS_NEW_DATA
         ri.save!

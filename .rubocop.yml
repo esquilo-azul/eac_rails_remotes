@@ -1,11 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Layout/MultilineMethodCallIndentation:
-  Exclude:
-  - app/controllers/eac_rails_remotes/instances_controller.rb
-  - app/models/eac_rails_remotes/instance.rb
-  - config/initializers/menus.rb
 Lint/RedundantCopDisableDirective:
   Exclude:
   - spec/models/eac_rails_remotes/instance_spec.rb
