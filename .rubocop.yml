@@ -1,39 +1,46 @@
-require:
-  - rubocop-rails
-  - rubocop-rspec
-
-Metrics/BlockLength:
+---
+inherit_gem:
+  eac_rails_gem_support: ".rubocop.yml"
+Gemspec/RequiredRubyVersion:
   Exclude:
-    - '**/*.gemspec'
-    - spec/**/*_spec.rb
-
+  - eac_rails_remotes.gemspec
+Layout/MultilineMethodCallIndentation:
+  Exclude:
+  - app/controllers/eac_rails_remotes/instances_controller.rb
+  - app/models/eac_rails_remotes/instance.rb
+  - config/initializers/menus.rb
+Lint/RedundantCopDisableDirective:
+  Exclude:
+  - spec/models/eac_rails_remotes/instance_spec.rb
 Metrics/MethodLength:
   Exclude:
-    - '**/db/migrate/*.rb'
-
-Layout/LineLength:
-  Max: 100
-
-Rails/DynamicFindBy:
-  Enabled: false
-
-Rails/Output:
-  Enabled: false
-
-Rails/SkipsModelValidations:
-  Enabled: false
-
-Style/AsciiComments:
-  Enabled: false
-
-Style/Documentation:
-  Enabled: false
-
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
+  - spec/support/rails_app_append/db/migrate/20230521030001_create_transactions.rb
+Rails/IndexWith:
+  Exclude:
+  - lib/eac_rails_remotes/import_file.rb
+Rails/UniqueValidationWithoutIndex:
+  Exclude:
+  - app/models/eac_rails_remotes/instance.rb
+Style/CaseLikeIf:
+  Exclude:
+  - lib/eac_rails_remotes/import_file.rb
+Style/HashConversion:
+  Exclude:
+  - app/models/eac_rails_remotes/instance.rb
+  - lib/eac_rails_remotes/import_file.rb
+Style/RedundantConstantBase:
+  Exclude:
+  - Gemfile
+  - config/initializers/menus.rb
+  - config/routes.rb
+  - lib/tasks/eac_rails_remotes.rake
+  - spec/lib/eac_rails_remotes/import_file_spec.rb
+  - spec/models/eac_rails_remotes/instance_spec.rb
+  - spec/rubocop_spec.rb
+  - spec/spec_helper.rb
+  - spec/support/rails_app_append/app/models/account.rb
+  - spec/support/rails_app_append/app/models/transaction.rb
+  - spec/support/rails_app_append/config/routes.rb
+Style/SafeNavigation:
+  Exclude:
+  - app/models/eac_rails_remotes/instance.rb
