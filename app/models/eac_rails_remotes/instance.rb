@@ -47,7 +47,7 @@ module EacRailsRemotes
       return [attr, value] unless a
 
       ri = self.class.find_by(source: source, entity: a.klass.name, code: value)
-      [a.name, ri ? ri.target : nil]
+      [a.name, ri&.target]
     end
 
     # @return [ActiveRecord::Reflection::BelongsToReflection, nil]
