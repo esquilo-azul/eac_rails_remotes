@@ -19,7 +19,7 @@ module EacRailsRemotes
 
     def init_counts
       @initial_counts = current_counts
-      @counts = Hash[@initial_counts.keys.map { |k| [k, 0] }]
+      @counts = @initial_counts.keys.index_with { |_k| 0 }
     end
 
     class Counter
@@ -88,7 +88,7 @@ module EacRailsRemotes
       end
 
       def new_counts
-        Hash[@counts.keys.map { |e| [e, current_count(e) - initial_count(e)] }]
+        @counts.keys.index_with { |e| current_count(e) - initial_count(e) }
       end
 
       def initial_count(entity)

@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Rails/IndexWith:
-  Exclude:
-  - lib/eac_rails_remotes/import_file.rb
 Rails/UniqueValidationWithoutIndex:
   Exclude:
   - app/models/eac_rails_remotes/instance.rb
