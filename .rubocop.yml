@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Metrics/MethodLength:
-  Exclude:
-  - spec/support/rails_app_append/db/migrate/20230521030001_create_transactions.rb
 Rails/IndexWith:
   Exclude:
   - lib/eac_rails_remotes/import_file.rb

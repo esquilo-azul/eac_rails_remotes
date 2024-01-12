@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CreateTransactions < ActiveRecord::Migration[5.2]
-  def change
+  def change # rubocop:disable Metrics/MethodLength
     create_table :transactions do |t|
       t.references :from, index: true
       t.references :to, index: true
