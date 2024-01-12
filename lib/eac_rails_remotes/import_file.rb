@@ -65,15 +65,16 @@ module EacRailsRemotes
         "#{source}|#{entity}"
       end
 
-      def entity_to_h(entity)
-        if entity.is_a?(String)
+      def entity_to_h(entity) # rubocop:disable Metrics/MethodLength
+        case entity
+        when String
           m = /\A([^\|]+)\|([^\|]+)\z/.match(entity)
           return { source: m[1], entity: m[2] } if m
 
           raise "Entity pattern no matched: \"#{entity}\""
-        elsif entity.is_a?(::EacRailsRemotes::Instance)
+        when ::EacRailsRemotes::Instance
           return { source: entity.source, entity: entity.entity }
-        elsif entity.is_a?(Hash)
+        when Hash
           return entity
         end
         raise "Entity class not mapped: #{entity}|#{entity.class}"
