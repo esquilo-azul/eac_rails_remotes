@@ -81,7 +81,7 @@ module EacRailsRemotes
       end
 
       def initial_counts
-        Hash[@counts.keys.map { |e, _c| [e, initial_count(e)] }]
+        @counts.keys.to_h { |e, _c| [e, initial_count(e)] }
       end
 
       def found_counts

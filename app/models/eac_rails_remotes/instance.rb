@@ -39,7 +39,7 @@ module EacRailsRemotes
     private
 
     def target_attributes
-      Hash[EacRubyUtils::Yaml.load(data).map { |k, v| target_attribute(k, v) }]
+      EacRubyUtils::Yaml.load(data).to_h { |k, v| target_attribute(k, v) }
     end
 
     def target_attribute(attr, value)
