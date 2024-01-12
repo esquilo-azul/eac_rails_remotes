@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Lint/RedundantCopDisableDirective:
-  Exclude:
-  - spec/models/eac_rails_remotes/instance_spec.rb
 Metrics/MethodLength:
   Exclude:
   - spec/support/rails_app_append/db/migrate/20230521030001_create_transactions.rb

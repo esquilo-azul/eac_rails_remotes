@@ -53,7 +53,7 @@
       it { expect(a_inst.export_message).to be_blank }
       it { expect(a_inst.target).to be_blank }
 
-      context 'when account is exported' do # rubocop:disable RSpec/NestedGroups
+      context 'when account is exported' do
         before { a_inst.export }
 
         it { expect(a_inst.export_status).to eq(::EacRailsRemotes::Instance::EXPORT_STATUS_OK) }
@@ -62,7 +62,7 @@
         it { expect(a_inst.target.name).to eq('Conta 1') }
         it { expect(a_inst.target.parent).to be_blank }
 
-        context 'when transaction is exported with account' do # rubocop:disable RSpec/NestedGroups
+        context 'when transaction is exported with account' do
           before { t_inst.export }
 
           it {
