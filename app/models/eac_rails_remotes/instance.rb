@@ -10,7 +10,7 @@ module EacRailsRemotes
 
     validates :source, presence: true
     validates :entity, presence: true
-    validates :code, presence: true, uniqueness: { scope: %i[source entity] }
+    validates :code, presence: true, uniqueness: { scope: %i[source entity] } # rubocop:disable Rails/UniqueValidationWithoutIndex
     validates :data, presence: true
     validates :export_status, presence: true, inclusion: { in: lists.export_status.values }
 
