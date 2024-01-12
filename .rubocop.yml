@@ -1,19 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Style/RedundantConstantBase:
-  Exclude:
-  - Gemfile
-  - config/initializers/menus.rb
-  - config/routes.rb
-  - lib/tasks/eac_rails_remotes.rake
-  - spec/lib/eac_rails_remotes/import_file_spec.rb
-  - spec/models/eac_rails_remotes/instance_spec.rb
-  - spec/rubocop_spec.rb
-  - spec/spec_helper.rb
-  - spec/support/rails_app_append/app/models/account.rb
-  - spec/support/rails_app_append/app/models/transaction.rb
-  - spec/support/rails_app_append/config/routes.rb
 Style/SafeNavigation:
   Exclude:
   - app/models/eac_rails_remotes/instance.rb

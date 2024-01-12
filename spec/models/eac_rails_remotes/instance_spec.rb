@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-::RSpec.describe ::EacRailsRemotes::Instance do
+RSpec.describe EacRailsRemotes::Instance do
   let(:t_inst) do
     described_class.import(
       source: 'ehbrs-web-utils_local',
@@ -21,14 +21,14 @@
   it { expect(t_inst.source).to eq('ehbrs-web-utils_local') }
   it { expect(t_inst.entity).to eq('Transaction') }
   it { expect(t_inst.code).to eq('5411') }
-  it { expect(t_inst.export_status).to eq(::EacRailsRemotes::Instance::EXPORT_STATUS_NEW_DATA) }
+  it { expect(t_inst.export_status).to eq(EacRailsRemotes::Instance::EXPORT_STATUS_NEW_DATA) }
   it { expect(t_inst.export_message).to be_blank }
   it { expect(t_inst.target).to be_blank }
 
   context 'when transaction is exported without account' do
     before { t_inst.export }
 
-    it { expect(t_inst.export_status).to eq(::EacRailsRemotes::Instance::EXPORT_STATUS_ERROR) }
+    it { expect(t_inst.export_status).to eq(EacRailsRemotes::Instance::EXPORT_STATUS_ERROR) }
     it { expect(t_inst.export_message).to be_present }
     it { expect(t_inst.target).to be_blank }
 
@@ -49,16 +49,16 @@
       it { expect(a_inst.source).to eq('ehbrs-web-utils_local') }
       it { expect(a_inst.entity).to eq('Account') }
       it { expect(a_inst.code).to eq('3') }
-      it { expect(a_inst.export_status).to eq(::EacRailsRemotes::Instance::EXPORT_STATUS_NEW_DATA) }
+      it { expect(a_inst.export_status).to eq(EacRailsRemotes::Instance::EXPORT_STATUS_NEW_DATA) }
       it { expect(a_inst.export_message).to be_blank }
       it { expect(a_inst.target).to be_blank }
 
       context 'when account is exported' do
         before { a_inst.export }
 
-        it { expect(a_inst.export_status).to eq(::EacRailsRemotes::Instance::EXPORT_STATUS_OK) }
+        it { expect(a_inst.export_status).to eq(EacRailsRemotes::Instance::EXPORT_STATUS_OK) }
         it { expect(a_inst.export_message).to be_blank }
-        it { expect(a_inst.target).to be_a(::Account) }
+        it { expect(a_inst.target).to be_a(Account) }
         it { expect(a_inst.target.name).to eq('Conta 1') }
         it { expect(a_inst.target.parent).to be_blank }
 
@@ -66,12 +66,12 @@
           before { t_inst.export }
 
           it {
-            expect(t_inst.export_status).to eq(::EacRailsRemotes::Instance::EXPORT_STATUS_OK),
+            expect(t_inst.export_status).to eq(EacRailsRemotes::Instance::EXPORT_STATUS_OK),
                                             t_inst.export_message
           }
 
           it { expect(t_inst.export_message).to be_blank }
-          it { expect(t_inst.target).to be_a(::Transaction) }
+          it { expect(t_inst.target).to be_a(Transaction) }
 
           it { expect(t_inst.target.description).to eq('Ajudantes') }
           it { expect(t_inst.target.label).to eq('') }

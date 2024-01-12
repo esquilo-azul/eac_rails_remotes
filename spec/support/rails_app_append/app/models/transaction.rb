@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Transaction < ::ActiveRecord::Base
+class Transaction < ActiveRecord::Base
   belongs_to :from, class_name: 'Account', optional: true
   belongs_to :to, class_name: 'Account', optional: true
 
