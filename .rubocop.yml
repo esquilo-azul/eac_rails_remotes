@@ -1,9 +1,6 @@
 ---
 inherit_gem:
   eac_rails_gem_support: ".rubocop.yml"
-Gemspec/RequiredRubyVersion:
-  Exclude:
-  - eac_rails_remotes.gemspec
 Layout/MultilineMethodCallIndentation:
   Exclude:
   - app/controllers/eac_rails_remotes/instances_controller.rb
