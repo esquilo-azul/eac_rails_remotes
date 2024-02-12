@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors     = ['Put here the authors']
   s.summary     = 'Put here de description.'
 
-  s.files = Dir['{app,assets,config,db,lib}/**/*']
+  s.files = Dir['{app,config,db,lib}/**/*']
   s.required_ruby_version = '>= 2.7'
 
   s.add_dependency 'eac_active_scaffold', '~> 0.5', '>= 0.5.3'
