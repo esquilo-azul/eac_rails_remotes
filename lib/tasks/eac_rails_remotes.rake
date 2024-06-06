@@ -8,6 +8,6 @@ namespace :eac_rails_remotes do
 
   desc 'Export pending remote instances'
   task export_all: :environment do |_t, _args|
-    EacRailsRemotes::Instance.new.perform
+    EacRailsRemotes::Instance.pendent.each(&:export)
   end
 end
