@@ -24,6 +24,16 @@ module EacRailsRemotes
       "#{source}|#{entity}|#{code}"
     end
 
+    # @return [Object]
+    def assert_target
+      return target if target.present?
+
+      export if export_status != EXPORT_STATUS_ERROR
+      return target if target.present?
+
+      raise "Export failed (ID: #{id}, export message: \"#{export_message}\""
+    end
+
     def export
       Rails.logger.info("Exporting #{self}")
       t = target || entity_class.new
