@@ -71,8 +71,10 @@ module EacRailsRemotes
         ri = where(source: record.fetch(:source), entity: record.fetch(:entity),
                    code: record.fetch(:code)).first_or_initialize
         ri.data = record.fetch(:data).to_yaml
-        ri.export_status = EXPORT_STATUS_NEW_DATA
-        ri.save!
+        if ri.data_changed?
+          ri.export_status = EXPORT_STATUS_NEW_DATA
+          ri.save!
+        end
         ri
       end
     end
