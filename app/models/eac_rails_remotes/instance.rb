@@ -68,7 +68,7 @@ module EacRailsRemotes
       # @param record [Hash]
       # @return [EacRailsRemotes::Instance]
       def import(record)
-        ri = where(source: record.fetch(:source), entity: record.fetch(:entity),
+        ri = where(source: record.fetch(:source), entity: sanitize_entity(record.fetch(:entity)),
                    code: record.fetch(:code)).first_or_initialize
         ri.data = record.fetch(:data).to_yaml
         if ri.data_changed?
@@ -76,6 +76,12 @@ module EacRailsRemotes
           ri.save!
         end
         ri
+      end
+
+      # @oaram entity [Object]
+      # @return [String]
+      def sanitize_entity(entity)
+        entity.is_a?(::Module) ? entity.name : entity.to_s
       end
     end
   end
