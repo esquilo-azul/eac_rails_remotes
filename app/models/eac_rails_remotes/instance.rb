@@ -65,10 +65,12 @@ module EacRailsRemotes
     end
 
     class << self
+      # @param record [Hash]
+      # @return [EacRailsRemotes::Instance]
       def import(record)
-        ri = where(source: record[:source], entity: record[:entity], code: record[:code])
-               .first_or_initialize
-        ri.data = record[:data].to_yaml
+        ri = where(source: record.fetch(:source), entity: record.fetch(:entity),
+                   code: record.fetch(:code)).first_or_initialize
+        ri.data = record.fetch(:data).to_yaml
         ri.export_status = EXPORT_STATUS_NEW_DATA
         ri.save!
         ri
