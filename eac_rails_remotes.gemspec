@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*']
   s.required_ruby_version = '>= 2.7'
 
-  s.add_dependency 'eac_active_scaffold', '~> 0.5', '>= 0.5.3'
+  s.add_dependency 'eac_active_scaffold', '~> 0.6', '>= 0.6.1'
   s.add_dependency 'eac_rails_utils', '~> 0.22', '>= 0.22.2'
   s.add_dependency 'eac_ruby_utils', '~> 0.121'
 
