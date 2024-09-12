@@ -20,6 +20,11 @@ module EacRailsRemotes
       where.not(export_status: EXPORT_STATUS_OK)
     }
 
+    # @return [Object]
+    def parsed_data
+      ::EacRubyUtils::Yaml.load(data)
+    end
+
     def to_s
       "#{source}|#{entity}|#{code}"
     end
@@ -54,7 +59,7 @@ module EacRailsRemotes
     private
 
     def target_attributes
-      EacRubyUtils::Yaml.load(data).to_h { |k, v| target_attribute(k, v) }
+      parsed_data.to_h { |k, v| target_attribute(k, v) }
     end
 
     def target_attribute(attr, value)
