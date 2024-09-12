@@ -27,7 +27,7 @@ module EacRailsRemotes
 
     # @param value [Object]
     def parsed_data=(value)
-      self.data = value.to_yaml
+      self.data = value.if_present(nil) { |v| ::EacRubyUtils::Yaml.dump(v) }
     end
 
     def to_s
