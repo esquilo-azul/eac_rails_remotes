@@ -25,6 +25,11 @@ module EacRailsRemotes
       data.if_present(nil) { |v| ::EacRubyUtils::Yaml.load(v) }
     end
 
+    # @param value [Object]
+    def parsed_data=(value)
+      self.data = value.to_yaml
+    end
+
     def to_s
       "#{source}|#{entity}|#{code}"
     end
@@ -86,7 +91,7 @@ module EacRailsRemotes
       def import(record)
         ri = where(source: record.fetch(:source), entity: sanitize_entity(record.fetch(:entity)),
                    code: record.fetch(:code)).first_or_initialize
-        ri.data = record.fetch(:data).to_yaml
+        ri.parsed_data = record.fetch(:data)
         if ri.data_changed?
           ri.export_status = EXPORT_STATUS_NEW_DATA
           ri.save!

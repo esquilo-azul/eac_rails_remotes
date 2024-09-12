@@ -15,6 +15,25 @@ RSpec.describe EacRailsRemotes::Instance, '#parsed_data' do
   it { expect(instance.data).to be_nil }
   it { expect(instance.parsed_data).to be_nil }
 
+  context 'when set parsed data' do
+    before do
+      instance.parsed_data = parsed_data_value
+    end
+
+    it { expect(instance.parsed_data).to eq(parsed_data_value) }
+    it { expect(instance.data).to eq(EacRubyUtils::Yaml.dump(parsed_data_value)) }
+
+    context 'when is saved' do
+      before do
+        instance.save!
+        instance.reload
+      end
+
+      it { expect(instance.parsed_data).to eq(parsed_data_value) }
+      it { expect(instance.data).to eq(yaml_data_value) }
+    end
+  end
+
   context 'when set yaml data' do
     before do
       instance.data = yaml_data_value
