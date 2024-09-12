@@ -22,7 +22,7 @@ module EacRailsRemotes
 
     # @return [Object]
     def parsed_data
-      ::EacRubyUtils::Yaml.load(data)
+      data.if_present(nil) { |v| ::EacRubyUtils::Yaml.load(v) }
     end
 
     def to_s
