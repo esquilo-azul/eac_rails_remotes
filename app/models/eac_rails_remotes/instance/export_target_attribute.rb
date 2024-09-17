@@ -6,21 +6,23 @@ module EacRailsRemotes
   class Instance < ::ActiveRecord::Base
     class ExportTargetAttribute
       acts_as_instance_method
+      enable_simple_cache
       common_constructor :instance, :attribute, :value
 
       # @return [Array]
       def result
-        a = entity_association_class
-        return [attribute, value] unless a
+        return [attribute, value] unless entity_association_class
 
-        ri = instance.class.find_by(source: instance.source, entity: a.klass.name, code: value)
-        [a.name, ri&.target]
+        ri = instance.class.find_by(
+          source: instance.source, entity: entity_association_class.klass.name, code: value
+        )
+        [entity_association_class.name, ri&.target]
       end
 
       protected
 
       # @return [ActiveRecord::Reflection::BelongsToReflection, nil]
-      def entity_association_class
+      def entity_association_class_uncached
         instance.entity_class.reflect_on_all_associations(:belongs_to)
           .find { |x| x.foreign_key.to_sym == attribute.to_sym }
       end
