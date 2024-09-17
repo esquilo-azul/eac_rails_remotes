@@ -12,7 +12,8 @@ RSpec.describe EacRailsRemotes::Instance do
         label: '',
         from_id: '3',
         to_id: '106',
-        amount: '120.0'
+        amount: '120.0',
+        invalid_attribute: 'any_value'
       }
     )
   end

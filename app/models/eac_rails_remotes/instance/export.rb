@@ -23,7 +23,7 @@ module EacRailsRemotes
 
       # @return [Hash]
       def target_attributes
-        parsed_data.to_h { |k, v| export_target_attribute(k, v) }
+        parsed_data.map { |k, v| export_target_attribute(k, v) }.compact_blank.to_h
       end
 
       # @return [String]

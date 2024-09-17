@@ -11,6 +11,7 @@ module EacRailsRemotes
 
       # @return [Array]
       def result
+        return nil unless valid?
         return [attribute, value] unless entity_association_class
 
         result_by_association
@@ -30,6 +31,12 @@ module EacRailsRemotes
           source: instance.source, entity: entity_association_class.klass.name, code: value
         )
         [entity_association_class.name, ri&.assert_target]
+      end
+
+      # @return [Boolean]
+      def valid?
+        instance.entity_class.primary_key != attribute.to_s &&
+          instance.entity_class.new.respond_to?("#{attribute}=")
       end
     end
   end
