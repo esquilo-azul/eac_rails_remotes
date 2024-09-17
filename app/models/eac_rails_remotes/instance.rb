@@ -46,6 +46,11 @@ module EacRailsRemotes
       end
     end
 
+    # @return [Class<ActiveRecord::Base>]
+    def entity_class
+      entity.constantize
+    end
+
     private
 
     def target_attributes
@@ -64,10 +69,6 @@ module EacRailsRemotes
     def entity_association_class(attribute)
       entity_class.reflect_on_all_associations(:belongs_to)
         .find { |x| x.foreign_key.to_sym == attribute.to_sym }
-    end
-
-    def entity_class
-      entity.constantize
     end
 
     def target_export_message(target)
