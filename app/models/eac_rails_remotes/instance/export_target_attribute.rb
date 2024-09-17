@@ -13,10 +13,7 @@ module EacRailsRemotes
       def result
         return [attribute, value] unless entity_association_class
 
-        ri = instance.class.find_by(
-          source: instance.source, entity: entity_association_class.klass.name, code: value
-        )
-        [entity_association_class.name, ri&.target]
+        result_by_association
       end
 
       protected
@@ -25,6 +22,14 @@ module EacRailsRemotes
       def entity_association_class_uncached
         instance.entity_class.reflect_on_all_associations(:belongs_to)
           .find { |x| x.foreign_key.to_sym == attribute.to_sym }
+      end
+
+      # @return [Array]
+      def result_by_association
+        ri = instance.class.find_by(
+          source: instance.source, entity: entity_association_class.klass.name, code: value
+        )
+        [entity_association_class.name, ri&.target]
       end
     end
   end
