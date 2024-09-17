@@ -23,7 +23,7 @@ module EacRailsRemotes
 
       # @return [Hash]
       def target_attributes
-        parsed_data.to_h { |k, v| __getobj__.send(:target_attribute, k, v) }
+        parsed_data.to_h { |k, v| export_target_attribute(k, v) }
       end
 
       # @return [String]

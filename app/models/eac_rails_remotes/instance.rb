@@ -49,22 +49,6 @@ module EacRailsRemotes
       entity.constantize
     end
 
-    private
-
-    def target_attribute(attr, value)
-      a = entity_association_class(attr)
-      return [attr, value] unless a
-
-      ri = self.class.find_by(source: source, entity: a.klass.name, code: value)
-      [a.name, ri&.target]
-    end
-
-    # @return [ActiveRecord::Reflection::BelongsToReflection, nil]
-    def entity_association_class(attribute)
-      entity_class.reflect_on_all_associations(:belongs_to)
-        .find { |x| x.foreign_key.to_sym == attribute.to_sym }
-    end
-
     class << self
       # @param record [Hash]
       # @return [EacRailsRemotes::Instance]
