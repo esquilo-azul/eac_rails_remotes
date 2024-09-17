@@ -44,28 +44,12 @@ module EacRailsRemotes
       raise "Export failed (ID: #{id}, export message: \"#{export_message}\""
     end
 
-    def export
-      Rails.logger.info("Exporting #{self}")
-      t = target || entity_class.new
-      t.attributes = target_attributes
-      if t.save
-        update!(export_status: EXPORT_STATUS_OK, export_message: '', target: t)
-      else
-        update!(export_status: EXPORT_STATUS_ERROR,
-                export_message: target_export_message(t))
-      end
-    end
-
     # @return [Class<ActiveRecord::Base>]
     def entity_class
       entity.constantize
     end
 
     private
-
-    def target_attributes
-      parsed_data.to_h { |k, v| target_attribute(k, v) }
-    end
 
     def target_attribute(attr, value)
       a = entity_association_class(attr)
@@ -79,10 +63,6 @@ module EacRailsRemotes
     def entity_association_class(attribute)
       entity_class.reflect_on_all_associations(:belongs_to)
         .find { |x| x.foreign_key.to_sym == attribute.to_sym }
-    end
-
-    def target_export_message(target)
-      "ATTRIBUTES: #{target.attributes}\nERRORS: #{target.errors.messages}\n"
     end
 
     class << self
@@ -105,5 +85,7 @@ module EacRailsRemotes
         entity.is_a?(::Module) ? entity.name : entity.to_s
       end
     end
+
+    require_sub __FILE__, require_mode: :kernel
   end
 end
