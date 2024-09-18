@@ -29,7 +29,7 @@ module EacRailsRemotes
         ri = instance.class.find_by(
           source: instance.source, entity: entity_association_class.klass.name, code: value
         )
-        [entity_association_class.name, ri&.target]
+        [entity_association_class.name, ri&.assert_target]
       end
     end
   end
