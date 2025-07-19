@@ -6,20 +6,26 @@ module EacRailsRemotes
   class Instance < ::ActiveRecord::Base
     class Export < ::SimpleDelegator
       acts_as_instance_method
+      enable_simple_cache
 
       def result
         Rails.logger.info("Exporting #{self}")
-        t = target || entity_class.new
-        t.attributes = target_attributes
-        if t.save
-          update!(export_status: EXPORT_STATUS_OK, export_message: '', target: t)
+        if filled_target.save
+          update!(export_status: EXPORT_STATUS_OK, export_message: '', target: filled_target)
         else
           update!(export_status: EXPORT_STATUS_ERROR,
-                  export_message: target_export_message(t))
+                  export_message: target_export_message(filled_target))
         end
       end
 
       protected
+
+      # @return [ActiveRecord::Base]
+      def filled_target_uncached
+        t = target || entity_class.new
+        t.attributes = target_attributes
+        t
+      end
 
       # @return [Hash]
       def target_attributes
