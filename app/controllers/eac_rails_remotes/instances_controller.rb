@@ -6,6 +6,8 @@ module EacRailsRemotes
 
     active_scaffold :'eac_rails_remotes/instance' do |conf|
       conf.actions.exclude :create, :update
+      conf.list.columns = %i[entity source code export_status target created_at
+                             updated_at]
       conf.columns[:export_status].form_ui = :select
       conf.columns[:entity].form_ui = :select
       conf.columns[:target].clear_link
