@@ -10,7 +10,11 @@ module EacRailsRemotes
 
       def result
         Rails.logger.info("Exporting #{self}")
-        filled_target.save ? update_as_ok : update_as_error
+        begin
+          filled_target.save ? update_as_ok : update_as_error
+        rescue ::EacRailsRemotes::Errors::TargetAssociationExport => e
+          update_as_association_error(e)
+        end
       end
 
       protected
@@ -30,6 +34,13 @@ module EacRailsRemotes
       # @return [String]
       def target_export_message(target)
         "ATTRIBUTES: #{target.attributes}\nERRORS: #{target.errors.messages}\n"
+      end
+
+      # @param error [EacRailsRemotes::Errors::TargetAssociationExport]
+      # @return [void]
+      def update_as_association_error(error)
+        update!(export_status: EXPORT_STATUS_ERROR,
+                export_message: target_export_message(error.record))
       end
 
       # @return [void]
