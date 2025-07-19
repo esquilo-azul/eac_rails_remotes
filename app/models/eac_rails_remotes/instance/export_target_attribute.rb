@@ -35,6 +35,10 @@ module EacRailsRemotes
       # @return [Array]
       def result_by_association
         [entity_association_class.name, association_record&.assert_target]
+      rescue ::EacRailsRemotes::Errors::TargetExport => e
+        raise ::EacRailsRemotes::Errors::TargetAssociationExport.new(
+          instance, entity_association_class.name, e.record
+        )
       end
 
       # @return [Boolean]
