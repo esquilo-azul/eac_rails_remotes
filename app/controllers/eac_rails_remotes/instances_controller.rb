@@ -8,6 +8,7 @@ module EacRailsRemotes
       conf.actions.exclude :create, :update
       conf.columns[:export_status].form_ui = :select
       conf.columns[:entity].form_ui = :select
+      conf.columns[:target].clear_link
       conf.actions.swap :search, :field_search
       conf.field_search.columns = :entity, :export_status
     end
