@@ -16,7 +16,7 @@ module EacRailsRemotes
 
     belongs_to :target, polymorphic: true, optional: true
 
-    scope :pendent, lambda {
+    scope :pending, lambda {
       where.not(export_status: EXPORT_STATUS_OK)
     }
 

@@ -3,7 +3,7 @@
 module EacRailsRemotes
   class ExportAll
     def perform
-      ::EacRailsRemotes::Instance.pendent.each(&:export)
+      ::EacRailsRemotes::Instance.pending.each(&:export)
     end
   end
 end
