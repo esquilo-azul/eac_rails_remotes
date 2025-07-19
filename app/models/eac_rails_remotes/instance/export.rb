@@ -10,12 +10,7 @@ module EacRailsRemotes
 
       def result
         Rails.logger.info("Exporting #{self}")
-        if filled_target.save
-          update!(export_status: EXPORT_STATUS_OK, export_message: '', target: filled_target)
-        else
-          update!(export_status: EXPORT_STATUS_ERROR,
-                  export_message: target_export_message(filled_target))
-        end
+        filled_target.save ? update_as_ok : update_as_error
       end
 
       protected
@@ -35,6 +30,17 @@ module EacRailsRemotes
       # @return [String]
       def target_export_message(target)
         "ATTRIBUTES: #{target.attributes}\nERRORS: #{target.errors.messages}\n"
+      end
+
+      # @return [void]
+      def update_as_error
+        update!(export_status: EXPORT_STATUS_ERROR,
+                export_message: target_export_message(filled_target))
+      end
+
+      # @return [void]
+      def update_as_ok
+        update!(export_status: EXPORT_STATUS_OK, export_message: '', target: filled_target)
       end
     end
   end
