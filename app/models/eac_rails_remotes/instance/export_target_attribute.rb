@@ -19,6 +19,13 @@ module EacRailsRemotes
 
       protected
 
+      # @return [EacRailsRemotes::Instance]
+      def association_record_uncached
+        instance.class.find_by(
+          source: instance.source, entity: entity_association_class.klass.name, code: value
+        )
+      end
+
       # @return [ActiveRecord::Reflection::BelongsToReflection, nil]
       def entity_association_class_uncached
         instance.entity_class.reflect_on_all_associations(:belongs_to)
@@ -27,10 +34,7 @@ module EacRailsRemotes
 
       # @return [Array]
       def result_by_association
-        ri = instance.class.find_by(
-          source: instance.source, entity: entity_association_class.klass.name, code: value
-        )
-        [entity_association_class.name, ri&.assert_target]
+        [entity_association_class.name, association_record&.assert_target]
       end
 
       # @return [Boolean]
