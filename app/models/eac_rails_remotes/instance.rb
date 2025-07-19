@@ -41,7 +41,7 @@ module EacRailsRemotes
       export if export_status != EXPORT_STATUS_ERROR
       return target if target.present?
 
-      raise "Export failed (ID: #{id}, export message: \"#{export_message}\""
+      raise ::EacRailsRemotes::Errors::TargetExport, self
     end
 
     # @return [Class<ActiveRecord::Base>]
