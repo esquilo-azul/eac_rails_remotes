@@ -68,7 +68,7 @@ module EacRailsRemotes
       def entity_to_h(entity) # rubocop:disable Metrics/MethodLength
         case entity
         when String
-          m = /\A([^\|]+)\|([^\|]+)\z/.match(entity)
+          m = /\A([^|]+)\|([^|]+)\z/.match(entity)
           return { source: m[1], entity: m[2] } if m
 
           raise "Entity pattern no matched: \"#{entity}\""
