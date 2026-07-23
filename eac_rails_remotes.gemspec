@@ -14,8 +14,8 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 3.2'
 
   s.add_dependency 'eac_active_scaffold', '~> 0.8', '>= 0.8.1'
-  s.add_dependency 'eac_rails_utils', '~> 0.29'
+  s.add_dependency 'eac_rails_utils', '~> 0.29', '>= 0.29.1'
   s.add_dependency 'eac_ruby_utils', '~> 0.131', '>= 0.131.2'
 
-  s.add_development_dependency 'eac_rails_gem_support', '~> 0.12', '>= 0.12.2'
+  s.add_development_dependency 'eac_rails_gem_support', '~> 0.12', '>= 0.12.3'
 end
