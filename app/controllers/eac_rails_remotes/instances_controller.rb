@@ -18,10 +18,10 @@ module EacRailsRemotes
     private
 
     def localize_options
-      active_scaffold_config.columns[:export_status].options = {
+      active_scaffold_config.columns.override(:export_status).options = {
         options: ::EacRailsRemotes::Instance.lists.export_status.options
       }
-      active_scaffold_config.columns[:entity].options = {
+      active_scaffold_config.columns.override(:entity).options = {
         options: ::EacRailsRemotes::Instance.select(:entity).order(entity: :asc).distinct
                    .pluck(:entity)
       }
